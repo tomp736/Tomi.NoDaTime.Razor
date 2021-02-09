@@ -1,0 +1,33 @@
+﻿@using NodaTime
+@using Microsoft.Extensions.Logging
+
+<input type="time" @bind="CurrentDateTime" />
+
+@code {
+    private DateTime CurrentDateTime
+    {
+        get
+        {
+            return NoDaUtils.ToDateTime(LocalTime);
+        }
+        set
+        {
+            LocalTime = NoDaUtils.ToLocalTime(value);
+            OnLocalTimeChanged();
+        }
+    }
+
+    [Parameter]
+    public LocalTime LocalTime { get; set; }
+
+    [Parameter]
+    public EventCallback<LocalTime> LocalTimeChanged { get; set; }
+
+    [Inject]
+    public ILogger<NoDaTimeDatePicker> Logger { get; set; }
+
+    public void OnLocalTimeChanged()
+    {
+        LocalTimeChanged.InvokeAsync(LocalTime);
+    }
+}

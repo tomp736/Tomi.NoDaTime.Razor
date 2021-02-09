@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Tomi.NoDaTime.Razor</PackageId>
+    <Version>1.0.0-$([System.DateTime]::UtcNow.ToString(yyyyMMdd-HHmmss))</Version>
+    <Authors>Thomas Pisula</Authors>
+    <Company>Tomi</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/tomp736/Tomi.NoDaTime.Razor</RepositoryUrl>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
+    <PackageReference Include="NodaTime" Version="3.0.5" />
+  </ItemGroup>
+
+</Project>
