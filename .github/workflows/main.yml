@@ -34,6 +34,6 @@ jobs:
       run: dotnet pack -c Release --no-build
       
     - name: PushGithub 1
-      run: dotnet nuget push ./Tomi.NoDaTime.Razor/bin/Release/*.nupkg --skip-duplicate
+      run: dotnet nuget push ./bin/Release/*.nupkg --skip-duplicate
       env:
         NUGET_AUTH_TOKEN: ${{secrets.PUBLISH_TO_GITHUB_COM}}
