@@ -1,7 +1,7 @@
 ﻿@using NodaTime
 @using Microsoft.Extensions.Logging
 
-<input type="date" @bind="CurrentDateTime" />
+<input type="date" class="@Class" style="@Style" @bind="CurrentDateTime" />
 
 @code {
     private DateTime CurrentDateTime
@@ -22,6 +22,12 @@
 
     [Parameter]
     public EventCallback<LocalDate> LocalDateChanged { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
+
+    [Parameter]
+    public string Style { get; set; }
 
     [Inject]
     public ILogger<NoDaTimeDatePicker> Logger { get; set; }
